@@ -1,0 +1,28 @@
+# File must be copied to Enterprise-scale repo
+
+name: AzResourceOps
+
+trigger:
+  - deploy/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+  - job: AzResourceOpsDeployTemplate
+    steps:
+      - checkout: self
+        persistCredentials: true
+      - checkout: git://AzOps/AzResourceOps
+        persistCredentials: true
+      - task: PowerShell@2
+        displayName: Deploy subscription ARM templates
+        env: {
+          AZURE_CREDENTIALS: $(AZURE_CREDENTIALS),
+          AZRESOURCEOPS_DEFAULT_DEPLOYMENT_REGION: norwayeast,
+          AZOPS_REPO_NAME: Enterprise-Scale,
+          AZDEVOPS_SOURCE_BRANCH: $(Build.SourceBranchName)
+        }
+        inputs:
+          targetType: filePath
+          filePath: ./AzResourceOps/InvokeAzResourceOps.ps1
