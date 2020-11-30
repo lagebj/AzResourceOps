@@ -64,7 +64,7 @@ The pipeline will trigger by default on push to all branches called deploy/*, wh
 To deploy a new resource:
 
 - Make sure to pull latest changes from main/master.
-- Create a new branch in your Enterprise-scale repo called deploy/<something>.
+- Create a new branch in your Enterprise-scale repo called deploy/whatever-you-want-here.
 - Copy your ARM template(s) and parameter file(s) to the resource group folder where you want to deploy the resources. If the resource group does not exist, you will need to deploy the resource group first.
 - Resource group deployment file(s) will be placed in the folder of the subscription where you want to deploy the resource group(s).
 
