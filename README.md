@@ -4,12 +4,13 @@ Bring your own ARM templates to Enterprise-scale.
 
 ## Objectives
 
-This module is created to be used as an extension to Microsoft [AzOps project](https://github.com/Azure/AzOps) and [Enterprise-scale](https://github.com/Azure/Enterprise-Scale).
-The main focus of this project is to extend [AzOps](https://github.com/Azure/AzOps) functionality with a "Bring-Your-Own-ARM-Template" mindset to handle resources at resource group level.
+This IaC module is created to be used as an "extension" to Microsoft [Enterprise-scale](https://github.com/Azure/Enterprise-Scale) and [AzOps](https://github.com/Azure/AzOps).
+The main focus of this project is to supplement [AzOps](https://github.com/Azure/AzOps) functionality and allow for deployment of all types of resources from your Enterprise-scale repo without having to modify any of the Enterprise-scale code maintained by Microsoft.
+The philosophy is that you "bring your own ARM templates" to handle resources at resource group level.
 
 ### AzOps
 
-AzResourceOps is not built to replace AzOps functionality to deploy resources within the scope of AzOps and AzOps should still be used to deploy resources like:
+AzResourceOps is not meant to replace AzOps functionality. You should still use AzOps to deploy resources within the scope of AzOps, like:
 
 - Management Group hierarchy and Subscription organization
     - ResourceTypes:
@@ -25,6 +26,8 @@ AzResourceOps is not built to replace AzOps functionality to deploy resources wi
     - ResourceTypes:
         - Microsoft.Authorization/roleDefinitions
         - Microsoft.Authorization/roleAssignments
+
+## Functionality
 
 ## Prerequisites
 
@@ -52,7 +55,7 @@ To start using AzResourceOps you need
     }
     ```
 
-## How to use
+## How to use AzResourceOps
 
 AzResourceOps requires a parameter file for each ARM template you wish to deploy. The parameter file has to have the same name as the ARM template with *.parameters.json appendend. I.ex. if you deploy a new Key Vault and the ARM template is called keyVault.json, your parameter file will have to be named keyVault.parameters.json.
 
