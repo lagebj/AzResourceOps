@@ -9,7 +9,7 @@ function InitializeSubscriptionTemplate {
     )
 
     try {
-        [string] $TemplateFilePath = 'AzResourceOps\azResourceOps_{0}.json' -f ((New-Guid).Guid.Substring(0,8))
+        [string] $TemplateFilePath = 'azResourceOps_{0}.json' -f ((New-Guid).Guid.Substring(0,8))
         [pscustomobject] $TemplateObject = @'
             {
                 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
