@@ -35,7 +35,7 @@ To start using AzResourceOps you need
 
 ## Getting Started
 
-- Clone this repository to your organization (currently only tested in Azure DevOps).
+- Clone this repository to your organization (currently only tested in Azure DevOps). The AzResourceOps repo must be possible to checkout from pipeline in your Enterprise-scale repo.
 - Copy file \.azure-pipelines\azresourceops-push.yml to your Enterprise-scale repo.
 - Change azresourceops-push.yml to reflect your environment.
     ![AzResourceOps pipeline YAML](./media/azresourceops-push.png)
@@ -54,17 +54,24 @@ To start using AzResourceOps you need
 
 ## How to use
 
+AzResourceOps requires a parameter file for each ARM template you wish to deploy. The parameter file have to have the same name as the ARM template with *.parameters.json appendend. I.ex. if you deploy a new Key Vault and the ARM template is called keyVault.json, your parameter file will have to be named keyVault.parameters.json.
+
+The pipeline will trigger by default on pushes to all branches called deploy/*, where * is wildcard.
+
+To deploy a new resource:
+
+- Make sure to pull latest changes from main/master.
+- Create a new branch in your Enterprise-scale repo called deploy/<something>.
+- Copy your ARM template(s) and parameter file(s) to the resource group folder where you want to deploy the resources. If the resource group does not exist, you will need to deploy the resource group first.
+- Resource group deployment file(s) will be placed in the folder of the subscription where you want to deploy the resource group(s).
+
 ## Limitations
 
 - AzResourceOps is currently only tested in Azure DevOps, not GitHub or any other services.
-- Deployments are done at subscription level, you will not be able to use
 
 ## More Information
 
 For more information
 
-* [AzResourceOps.readthedocs.io](http://AzResourceOps.readthedocs.io)
-* [github.com/lagebj/AzResourceOps](https://github.com/lagebj/AzResourceOps)
-* [lagebj.github.io](https://lagebj.github.io)
-
-This project was generated using [Lage Berger Jensen](http://lagebj.github.io)'s [Plastered Plaster Template](https://github.com/lagebj/PlasterTemplates/tree/master/Plastered).
+* [AzOps](https://github.com/Azure/AzOps)
+* [Enterprise-scale](https://github.com/Azure/Enterprise-Scale)
