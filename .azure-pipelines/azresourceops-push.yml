@@ -20,7 +20,8 @@ jobs:
         env: {
           AZURE_CREDENTIALS: $(AZURE_CREDENTIALS),
           AZRESOURCEOPS_DEFAULT_DEPLOYMENT_REGION: norwayeast,
-          AZOPS_REPO_NAME: Enterprise-Scale,
+          ES_REPO_NAME: Enterprise-Scale,
+          AZRESOURCEOPS_REPO_NAME: AzResourceOps,
           AZDEVOPS_SOURCE_BRANCH: $(Build.SourceBranchName)
         }
         inputs:

@@ -5,7 +5,7 @@ function GetTemplates {
     Param ()
 
     try {
-        [string] $RootPath = (Resolve-Path -Path ('{0}\azops' -f $env:AZOPS_REPO_NAME)).Path
+        [string] $RootPath = (Resolve-Path -Path ('{0}\azops' -f $env:ES_REPO_NAME)).Path
 
         [hashtable] $ChildItemParameters = @{
             Path = '{0}\*' -f $RootPath

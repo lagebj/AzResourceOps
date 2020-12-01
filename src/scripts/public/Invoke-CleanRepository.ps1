@@ -12,7 +12,7 @@ function Invoke-CleanRepository {
 
     if ($PSCmdlet.ShouldProcess('Cleans up repository after deployment of resources')) {
         try {
-            $null = Set-Location -Path $env:AZOPS_REPO_NAME
+            $null = Set-Location -Path $env:ES_REPO_NAME
 
             'Fetching latest origin changes.'
             StartExecution {
