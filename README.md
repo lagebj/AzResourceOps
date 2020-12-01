@@ -48,7 +48,7 @@ To start using AzResourceOps you need
 
 - Clone this repository to your organization (currently only tested in Azure DevOps within the same organization as Enterprise-scale repo). The AzResourceOps repo must be possible to checkout from pipeline in your Enterprise-scale repo.
 - Copy file `\.azure-pipelines\azresourceops-push.yml` to your Enterprise-scale repo.
-- Change azresourceops-push.yml to reflect your environment.
+- Change azresourceops-push.yml to reflect your environment. `ES_REPO_NAME` is the name of your Enterprise-scale repo, `AZRESOURCEOPS_REPO_NAME` is the name of your AzResourceOps repo. The folder in `FilePath` must be the name of the AzResourceOps repo (same as `AZRESOURCEOPS_REPO_NAME`).
     ![AzResourceOps pipeline YAML](./media/azresourceops-push.png)
 - Create a new pipeline in Enterprise-scale repo from `azresourceops-push.yml`.
 - Create a new secret pipeline variable called AZURE_CREDENTIALS containing your service principal, quotation marks should be escaped with `\`.
