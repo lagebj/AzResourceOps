@@ -12,9 +12,11 @@ function FormatTemplate {
 
         $TemplatePatternMatches = $Template | Select-String -Pattern $Pattern -AllMatches
 
-        $TemplatePatternMatches.Matches | ForEach-Object {
-            if (-not ($_.Groups[2].Value -eq 'input')) {
-                $Template = $Template.Replace($_.Value, ('parameters(''input'').{0}' -f $_.Groups[2].Value))
+        if ($TemplatePatternMatches) {
+            $TemplatePatternMatches.Matches | ForEach-Object {
+                if (-not ($_.Groups[2].Value -eq 'input')) {
+                    $Template = $Template.Replace($_.Value, ('parameters(''input'').{0}' -f $_.Groups[2].Value))
+                }
             }
         }
 
