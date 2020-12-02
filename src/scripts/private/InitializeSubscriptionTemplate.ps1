@@ -120,7 +120,7 @@ function InitializeSubscriptionTemplate {
                         $ParameterObject.parameters = $InputObject
                     }
 
-                    $ParameterObject.parameters.input.value.psobject.Properties | ForEach-Object {$ResourceGroupObject.resources[0].name = ($ParameterObject.parameters.input.value.psobject.Properties | Where-Object -Property 'Name' -eq $_.Name).Value}
+                    $ParameterObject.parameters.input.value.psobject.Properties | ForEach-Object {$ResourceGroupObject.resources[0].$($_.Name) = ($ParameterObject.parameters.input.value.psobject.Properties | Where-Object -Property 'Name' -eq $_.Name).Value}
                 } else {
                     $WarningMessages.Add(('Could not find parameter file for template {0}. Resource group will not be deployed.') -f (Split-Path -Path $_ -Leaf))
                     return
