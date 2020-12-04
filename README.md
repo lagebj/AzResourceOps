@@ -51,15 +51,15 @@ To start using AzResourceOps you need
 - Change azresourceops-push.yml to reflect your environment. `ES_REPO_NAME` is the name of your Enterprise-scale repo, `AZRESOURCEOPS_REPO_NAME` is the name of your AzResourceOps repo. The folder in `FilePath` must be the name of the AzResourceOps repo (same as `AZRESOURCEOPS_REPO_NAME`).
     ![AzResourceOps pipeline YAML](./media/azresourceops-push.png)
 - Create a new pipeline in Enterprise-scale repo from `azresourceops-push.yml`.
-- Create a new secret pipeline variable called AZURE_CREDENTIALS containing your service principal, quotation marks should be escaped with `\`.
+- Create a new secret pipeline variable called AZURE_CREDENTIALS containing your service principal.
     ```json
     {
-        \"clientId\": \"xxxx-xxxx-xxxx-xxxx-xxxxx\",
-        \"displayName\": \"AzOps\",
-        \"name\": \"http://AzOps\",
-        \"clientSecret\": \"xxxxxx-xxxx-xxxx-xxxx-xxxxxx\",
-        \"tenantId\": \"xxxxxx-xxxx-xxxx-xxxx-xxxxxx\",
-        \"subscriptionId\": \"xxxxxx-xxxx-xxxx-xxxx-xxxxxx\"
+        "clientId": "xxxx-xxxx-xxxx-xxxx-xxxxx",
+        "displayName": "AzOps",
+        "name": "http://AzOps",
+        "clientSecret": "xxxxxx-xxxx-xxxx-xxxx-xxxxxx",
+        "tenantId": "xxxxxx-xxxx-xxxx-xxxx-xxxxxx",
+        "subscriptionId": "xxxxxx-xxxx-xxxx-xxxx-xxxxxx"
     }
     ```
 
